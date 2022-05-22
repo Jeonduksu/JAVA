@@ -1,0 +1,26 @@
+package com.test01;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class URI03 {
+
+	public static void main(String[] args) throws MalformedURLException, IOException {
+		URLConnection urlConn = new URL("http://google.com").openConnection();
+		
+		BufferedInputStream buff = new BufferedInputStream( urlConn.getInputStream());
+		
+		//변수 생성
+		int byteRead = 0; 
+		while( (byteRead=buff.read()) != -1) {
+			System.out.print((char)byteRead);
+		}
+		
+		buff.close();
+		
+	}
+
+}
